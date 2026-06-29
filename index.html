@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="crt-overlay" aria-hidden="true"></div>
+<div id="glitch-overlay" aria-hidden="true"></div>
+
+<div id="app" role="application" aria-label="The Hats game">
+
+  <!-- BOOT SCREEN -->
+  <section id="view-boot" class="view view-active">
+    <div class="boot-wrap">
+      <pre class="boot-ascii" id="boot-ascii"></pre>
+      <div class="boot-lines" id="boot-lines"></div>
+      <button class="btn btn-primary boot-enter" id="btn-boot-enter">Connect to The Mesh</button>
+    </div>
+  </section>
+
+  <!-- TITLE / NEW GAME -->
+  <section id="view-title" class="view">
+    <div class="title-wrap">
+      <h1 class="title-logo">THE <span class="t-glitch" data-text="HATS">HATS</span></h1>
+      <p class="title-tagline">In a world ruled by code, choose what you stand for.</p>
+      <div class="title-actions">
+        <button class="btn btn-primary" id="btn-new-game">New connection</button>
+      </div>
+      <p class="title-footnote">Year 2148 &mdash; The Mesh, somewhere</p>
+    </div>
+  </section>
+
+  <!-- CHARACTER CREATION -->
+  <section id="view-charcreate" class="view">
+    <header class="view-header">
+      <p class="eyebrow">Identity provisioning</p>
+      <h2>Choose your build</h2>
+      <p class="view-sub">Your class determines your starting kit. Your faction comes later &mdash; for now, every hat fights the same enemy.</p>
+    </header>
+    <div class="class-grid" id="class-grid"></div>
+    <div class="charcreate-footer">
+      <div class="handle-input-wrap">
+        <label for="handle-input">Handle</label>
+        <input type="text" id="handle-input" maxlength="20" placeholder="e.g. nullpointer">
+      </div>
+      <button class="btn btn-primary" id="btn-confirm-class" disabled>Jack in</button>
+    </div>
+  </section>
+
+  <!-- HUB / DIALOGUE -->
+  <section id="view-hub" class="view">
+    <div class="hub-layout">
+      <aside class="hud" id="hud"></aside>
+      <main class="hub-main">
+        <div class="scene-frame" id="scene-frame">
+          <div class="scene-log" id="scene-log"></div>
+          <div class="scene-choices" id="scene-choices"></div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- COMBAT -->
+  <section id="view-combat" class="view">
+    <div class="combat-layout">
+      <div class="combat-field" id="combat-field"></div>
+      <div class="combat-log" id="combat-log"></div>
+      <div class="combat-controls" id="combat-controls"></div>
+    </div>
+  </section>
+
+  <!-- NULLSPACE TRANSITION -->
+  <section id="view-nullspace" class="view view-nullspace">
+    <div class="nullspace-wrap" id="nullspace-wrap">
+      <div class="nullspace-text" id="nullspace-text"></div>
+    </div>
+  </section>
+
+  <!-- END SLICE -->
+  <section id="view-end" class="view">
+    <div class="end-wrap">
+      <p class="eyebrow">Vertical slice complete</p>
+      <h2 id="end-title">Connection held.</h2>
+      <p id="end-body" class="end-body"></p>
+      <div class="end-stats" id="end-stats"></div>
+      <button class="btn btn-ghost" id="btn-restart">Disconnect &amp; restart</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="combat.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
