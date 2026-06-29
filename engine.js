@@ -52,6 +52,7 @@ const Game = {
   showView(name) {
     this.els.views.forEach(v => v.classList.remove('view-active'));
     document.getElementById('view-' + name).classList.add('view-active');
+    window.scrollTo(0, 0);
   },
 
   // ---------- BOOT ----------
