@@ -1,5 +1,2 @@
 /* ===== THE HATS — entry point ===== */
-
-document.addEventListener('DOMContentLoaded', () => {
-  Game.init();
-});
+document.addEventListener('DOMContentLoaded', () => { Game.init(); });

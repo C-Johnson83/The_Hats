@@ -10,13 +10,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div id="crt-overlay" aria-hidden="true"></div>
 <div id="glitch-overlay" aria-hidden="true"></div>
+<div id="app" role="application" aria-label="The Hats">
 
-<div id="app" role="application" aria-label="The Hats game">
-
-  <!-- BOOT SCREEN -->
+  <!-- BOOT -->
   <section id="view-boot" class="view view-active">
     <div class="boot-wrap">
       <pre class="boot-ascii" id="boot-ascii"></pre>
@@ -25,15 +23,15 @@
     </div>
   </section>
 
-  <!-- TITLE / NEW GAME -->
+  <!-- TITLE -->
   <section id="view-title" class="view">
     <div class="title-wrap">
-      <h1 class="title-logo">THE <span class="t-glitch" data-text="HATS">HATS</span></h1>
+      <h1 class="title-logo">THE <span class="t-glitch">HATS</span></h1>
       <p class="title-tagline">In a world ruled by code, choose what you stand for.</p>
+      <p class="title-year">Year 2148 &mdash; The Mesh</p>
       <div class="title-actions">
         <button class="btn btn-primary" id="btn-new-game">New connection</button>
       </div>
-      <p class="title-footnote">Year 2148 &mdash; The Mesh, somewhere</p>
     </div>
   </section>
 
@@ -42,7 +40,7 @@
     <header class="view-header">
       <p class="eyebrow">Identity provisioning</p>
       <h2>Choose your build</h2>
-      <p class="view-sub">Your class determines your starting kit. Your faction comes later &mdash; for now, every hat fights the same enemy.</p>
+      <p class="view-sub">Your class determines your combat kit. Your faction alignment emerges from your choices.</p>
     </header>
     <div class="class-grid" id="class-grid"></div>
     <div class="charcreate-footer">
@@ -59,7 +57,8 @@
     <div class="hub-layout">
       <aside class="hud" id="hud"></aside>
       <main class="hub-main">
-        <div class="scene-frame" id="scene-frame">
+        <div class="scene-frame">
+          <div class="scene-header" id="scene-header"></div>
           <div class="scene-log" id="scene-log"></div>
           <div class="scene-choices" id="scene-choices"></div>
         </div>
@@ -70,33 +69,57 @@
   <!-- COMBAT -->
   <section id="view-combat" class="view">
     <div class="combat-layout">
-      <div class="combat-field" id="combat-field"></div>
+      <div class="combat-top">
+        <div class="combat-field" id="combat-field"></div>
+      </div>
       <div class="combat-log" id="combat-log"></div>
       <div class="combat-controls" id="combat-controls"></div>
     </div>
   </section>
 
-  <!-- NULLSPACE TRANSITION -->
+  <!-- NULLSPACE -->
   <section id="view-nullspace" class="view view-nullspace">
     <div class="nullspace-wrap" id="nullspace-wrap">
       <div class="nullspace-text" id="nullspace-text"></div>
     </div>
   </section>
 
-  <!-- END SLICE -->
+  <!-- CLASS UNLOCK -->
+  <section id="view-unlock" class="view">
+    <div class="unlock-wrap">
+      <p class="eyebrow unlock-eyebrow">New class unlocked</p>
+      <h2 id="unlock-title"></h2>
+      <p id="unlock-desc" class="unlock-desc"></p>
+      <div id="unlock-abilities" class="unlock-abilities"></div>
+      <button class="btn btn-primary" id="btn-unlock-continue">Continue</button>
+    </div>
+  </section>
+
+  <!-- ENDINGS -->
+  <section id="view-endings" class="view">
+    <div class="endings-wrap">
+      <p class="eyebrow">The Final Hack — Act IV</p>
+      <h2>You stand at the core of The Mesh.</h2>
+      <p class="endings-sub">GHOST is here. Every choice you've made has led to this moment. How does it end?</p>
+      <div class="endings-grid" id="endings-grid"></div>
+    </div>
+  </section>
+
+  <!-- END SCREEN -->
   <section id="view-end" class="view">
     <div class="end-wrap">
-      <p class="eyebrow">Vertical slice complete</p>
-      <h2 id="end-title">Connection held.</h2>
+      <p class="eyebrow" id="end-eyebrow"></p>
+      <h2 id="end-title"></h2>
       <p id="end-body" class="end-body"></p>
       <div class="end-stats" id="end-stats"></div>
+      <div class="end-epilogue" id="end-epilogue"></div>
       <button class="btn btn-ghost" id="btn-restart">Disconnect &amp; restart</button>
     </div>
   </section>
 
 </div>
-
-<script src="data.js"></script>
+<script src="data-classes.js"></script>
+<script src="data-acts.js"></script>
 <script src="engine.js"></script>
 <script src="combat.js"></script>
 <script src="main.js"></script>

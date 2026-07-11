@@ -654,3 +654,159 @@ body.ghost-rising #glitch-overlay {
 /* ===== shared scrollbar ===== */
 .combat-log::-webkit-scrollbar { width: 6px; }
 .combat-log::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+/* ===== EXTENDED STYLES — full game ===== */
+
+.hud-act {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ghost);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  border-left: 2px solid var(--ghost);
+  padding-left: 8px;
+}
+.hud-ghostwalker {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ghost);
+  padding: 4px 8px;
+  border: 1px solid var(--ghost-dim);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.scene-act-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 12px;
+}
+
+.scene-text.ghost-text { color: var(--ghost); font-family: var(--font-mono); }
+.scene-speaker.ghost { color: var(--ghost); }
+.scene-speaker.ai { color: var(--ai-col); }
+
+.ability-type-tag {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--panel);
+}
+.ability-type-tag.attack { color: var(--black-hat); }
+.ability-type-tag.defense { color: var(--white-hat); }
+.ability-type-tag.heal { color: var(--ai-col); }
+.ability-type-tag.debuff { color: var(--gray-hat); }
+.ability-type-tag.buff { color: var(--white-hat); }
+.ability-type-tag.utility { color: var(--gray-hat); }
+
+.combatant-flavor {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-style: italic;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.combatant-card.is-boss { border-color: var(--ghost-dim); box-shadow: 0 0 12px rgba(155,111,214,0.2); }
+.combatant-card.is-boss .combatant-name { color: var(--ghost); }
+
+/* ===== COMBAT LAYOUT FIX ===== */
+.combat-top { flex: 1; min-height: 0; overflow-y: auto; }
+
+/* ===== GHOSTWALKER UNLOCK ===== */
+#view-unlock { overflow: hidden; align-items: center; justify-content: center; }
+.unlock-wrap { max-width: 600px; text-align: center; }
+.unlock-eyebrow { color: var(--ghost); border-color: var(--ghost); }
+.unlock-wrap h2 { font-size: 28px; color: var(--ghost); margin: 0 0 14px; }
+.unlock-desc { color: var(--text-dim); line-height: 1.7; margin-bottom: 24px; font-size: 15px; }
+.unlock-abilities {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 28px; text-align: left;
+}
+.unlock-ability {
+  background: var(--panel);
+  border: 1px solid var(--ghost-dim);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.unlock-ability-name { font-family: var(--font-mono); font-weight: 600; color: var(--ghost); font-size: 13px; }
+.unlock-ability-desc { font-size: 12px; color: var(--text-dim); }
+
+/* ===== ENDINGS SCREEN ===== */
+#view-endings { overflow-y: auto; justify-content: flex-start; }
+.endings-wrap { max-width: 900px; margin: 0 auto; width: 100%; }
+.endings-wrap h2 { font-size: 22px; margin: 0 0 8px; }
+.endings-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 24px; }
+.endings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.ending-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, transform 0.1s;
+}
+.ending-card:hover { transform: translateY(-2px); }
+.ending-card.ending-white-hat { border-color: var(--white-hat-dim); }
+.ending-card.ending-white-hat:hover { border-color: var(--white-hat); }
+.ending-card.ending-black-hat { border-color: var(--black-hat-dim); }
+.ending-card.ending-black-hat:hover { border-color: var(--black-hat); }
+.ending-card.ending-gray-hat { border-color: var(--gray-hat-dim); }
+.ending-card.ending-gray-hat:hover { border-color: var(--gray-hat); }
+.ending-card.ending-ai-col { border-color: var(--ai-col-dim); }
+.ending-card.ending-ai-col:hover { border-color: var(--ai-col); }
+.ending-card.ending-ghost { border-color: var(--ghost-dim); }
+.ending-card.ending-ghost:hover { border-color: var(--ghost); }
+.ending-card.ending-danger { border-color: #5a2a28; }
+.ending-card.ending-danger:hover { border-color: var(--danger); }
+.ending-card-title { font-family: var(--font-mono); font-weight: 600; font-size: 13px; margin-bottom: 6px; color: var(--text); }
+.ending-card-eyebrow { font-size: 12px; color: var(--text-dim); font-style: italic; margin-bottom: 8px; }
+.ending-score { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); }
+
+/* ===== END SCREEN ===== */
+#view-end { overflow-y: auto; justify-content: flex-start; align-items: center; }
+.end-wrap { max-width: 680px; padding: 20px 0 40px; }
+.end-wrap h2 { font-size: 22px; margin: 0 0 14px; }
+.end-body { color: var(--text-dim); line-height: 1.75; margin-bottom: 20px; font-size: 14px; }
+.end-epilogue {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.end-stats { display: flex; justify-content: center; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
+.end-stat { text-align: center; }
+.end-stat-val { font-family: var(--font-mono); font-size: 20px; font-weight: 600; }
+.end-stat-label { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ===== TITLE EXTRAS ===== */
+.title-year { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin: 0 0 28px; }
+
+/* ===== STATUS COLORS ===== */
+.status-chip.exposed { color: var(--gray-hat); border-color: var(--gray-hat-dim); }
+.status-chip.leaked { color: var(--gray-hat); border-color: var(--gray-hat-dim); }
+.status-chip.dot { color: var(--black-hat); border-color: var(--black-hat-dim); }
+.status-chip.shielded { color: var(--white-hat); border-color: var(--white-hat-dim); }
+.status-chip.pacified { color: var(--ai-col); border-color: var(--ai-col-dim); }
+.status-chip.cloaked { color: var(--text-dim); border-color: var(--line); }
+.status-chip.phased { color: var(--ghost); border-color: var(--ghost-dim); }
+.status-chip.linked { color: var(--white-hat); border-color: var(--white-hat-dim); }
+.status-chip.tricked { color: var(--gray-hat); border-color: var(--gray-hat-dim); }
+.status-chip.confused { color: var(--ghost); border-color: var(--ghost-dim); }
