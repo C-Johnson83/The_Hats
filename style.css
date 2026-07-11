@@ -45,11 +45,17 @@
 
 html, body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   background: var(--void);
   color: var(--text);
   font-family: var(--font-sans);
-  min-height: 100vh;
-  overflow-x: hidden;
+}
+
+#app {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 button { font-family: inherit; }
@@ -99,19 +105,16 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== view system ===== */
 
-#app {
-  position: relative;
-  min-height: 100vh;
-}
-
 .view {
   display: none;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
   padding: clamp(20px, 4vw, 56px);
   animation: viewIn 0.35s ease both;
 }
 
-.view.view-active { display: block; }
+.view.view-active { display: flex; flex-direction: column; }
 
 @keyframes viewIn {
   from { opacity: 0; transform: translateY(6px); }
@@ -167,7 +170,7 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== BOOT ===== */
 
-#view-boot { display: flex; align-items: center; justify-content: center; }
+#view-boot { overflow: hidden; align-items: center; justify-content: center; }
 .boot-wrap { max-width: 620px; width: 100%; }
 .boot-ascii {
   font-family: var(--font-mono);
@@ -184,7 +187,8 @@ body.ghost-rising #glitch-overlay {
   font-size: 13px;
   color: var(--text-dim);
   line-height: 1.9;
-  min-height: 260px;
+  height: 200px;
+  overflow: hidden;
 }
 .boot-line { opacity: 0; animation: bootIn 0.25s ease forwards; }
 .boot-line .ok { color: var(--ai-col); }
@@ -195,7 +199,7 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== TITLE ===== */
 
-#view-title { display: flex; align-items: center; justify-content: center; text-align: center; }
+#view-title { overflow: hidden; align-items: center; justify-content: center; text-align: center; }
 .title-wrap { max-width: 560px; }
 .title-logo {
   font-family: var(--font-mono);
@@ -227,12 +231,17 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== CHARACTER CREATION ===== */
 
+#view-charcreate { overflow: hidden; justify-content: flex-start; }
+
 .class-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
   max-width: 1040px;
-  margin: 0 auto 32px;
+  margin: 0 auto;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 8px;
 }
 
 .class-card {
@@ -316,12 +325,17 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== HUB / DIALOGUE ===== */
 
+#view-hub { overflow: hidden; justify-content: flex-start; }
+
 .hub-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
   align-items: start;
 }
 @media (max-width: 720px) {
@@ -333,8 +347,8 @@ body.ghost-rising #glitch-overlay {
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 16px;
-  position: sticky;
-  top: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
 }
 .hud-handle {
   font-family: var(--font-mono);
@@ -396,7 +410,7 @@ body.ghost-rising #glitch-overlay {
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 24px;
-  min-height: 420px;
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
 }
@@ -404,6 +418,7 @@ body.ghost-rising #glitch-overlay {
   flex: 1;
   font-size: 15px;
   line-height: 1.75;
+  overflow-y: auto;
 }
 .scene-line { margin-bottom: 16px; animation: lineIn 0.3s ease both; }
 @keyframes lineIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
@@ -463,13 +478,17 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== COMBAT ===== */
 
+#view-combat { overflow: hidden; justify-content: flex-start; }
+
 .combat-layout {
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   gap: 16px;
-  min-height: 80vh;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .combat-field {
@@ -588,7 +607,7 @@ body.ghost-rising #glitch-overlay {
 
 #view-nullspace {
   background: #060508;
-  display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
@@ -617,7 +636,7 @@ body.ghost-rising #glitch-overlay {
 
 /* ===== END ===== */
 
-#view-end { display: flex; align-items: center; justify-content: center; text-align: center; }
+#view-end { overflow: hidden; align-items: center; justify-content: center; text-align: center; }
 .end-wrap { max-width: 560px; }
 .end-wrap h2 { font-size: 26px; margin: 0 0 16px; }
 .end-body { color: var(--text-dim); line-height: 1.7; margin-bottom: 28px; }
